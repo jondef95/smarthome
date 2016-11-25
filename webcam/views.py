@@ -9,13 +9,13 @@ def index(request):
 	if request.method == 'POST':
 		if(request.POST.get('left')):
 			print("LEFT!")
-			servo.turnServoDegree(5)
+			servo.turnServoDegree(15)
 			return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 		elif(request.POST.get('right')):
 			print("RIGHT!")
-			servo.turnServoDegree(-5)
+			servo.turnServoDegree(-15)
 			return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 		else:
 			print("ya done fcucked up")
-	template = loader.get_template('webcam/test.html')
+	template = loader.get_template('webcam/camera.html')
 	return HttpResponse(template.render())

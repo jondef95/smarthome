@@ -38,7 +38,7 @@ def turnServoDegree(degree):
 	p = GPIO.PWM(12, 50)
 
 	p.start(next_pos)
-	time.sleep(0.25)
+	time.sleep(0.5)
 	p.stop()
 	GPIO.cleanup()
 
