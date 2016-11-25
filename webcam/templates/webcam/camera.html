@@ -1,5 +1,29 @@
-<form action="#" method="post">
-{% csrf_token %}
-	<button type="submit" name="left" value="Save&Home">LEFT</button>
-	<button type="submit" name="right" value="Save&Next">RIGHT</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" type="text/css" href="2171.css" />
+</head>	
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>PiHome Smarthome System&trade;</h1>
+        </div>
+		<ul>
+		  <li><a href="">Home</a></li>
+		  <li><a href="http://192.168.0.106:8081">View Camera</a></li>
+		  <li><a href="camera.html">Camera Control</a></li>
+		</ul>            
+        <div id="content">
+        <p>The current angle is: 45 degrees</p><p></p>
+			<form action="#" method="post">
+			{% csrf_token %}<p>
+				<button type="submit" class="myButton" name="left" value="turn&left">LEFT</button>
+				<button type="submit" class="myButton" name="right" value="turn&right">RIGHT</button>
+				</p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+
