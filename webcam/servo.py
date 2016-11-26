@@ -45,3 +45,4 @@ def turnServoDegree(degree):
 	f = open(file_path, 'w')
 	f.write(str(next_degree))
 	f.close()
+

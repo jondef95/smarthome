@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response
 from . import servo
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.core.urlresolvers import reverse
-
+import os
 def index(request):
 	if request.method == 'POST':
 		if(request.POST.get('left')):
@@ -18,4 +18,9 @@ def index(request):
 		else:
 			print("ya done fcucked up")
 	template = loader.get_template('webcam/camera.html')
-	return HttpResponse(template.render())
+	module_dir = os.path.dirname(__file__)  # get current directory
+	file_path = os.path.join(module_dir, 'servo_pos.txt')
+	f = open(file_path, 'r')
+	curr_degree = int(f.readline())
+	f.close()
+	return render_to_response('webcam/camera.html', {'degree':str(curr_degree)})

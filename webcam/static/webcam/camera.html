@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-{% load static %}
-	<link rel="stylesheet" href="{% static "webcam/main.css" %}">
-	<link rel="stylesheet" href="{% static "webcam/2171.css" %}" />
+	<link rel="stylesheet" href="templates/webcam/main.css">
+	<link rel="stylesheet" type="text/css" href="templates/webcam/2171.css" />
 </head>	
 <body>
     <div id="wrapper">
@@ -16,7 +15,20 @@
 		  <li><a href="camera.html">Camera Control</a></li>
 		</ul>            
         <div id="content">
-        <p></p><p>The current angle is: <font size=5>{{ degree }}&#176;</font></p><p></p>
+        <p>The current angle is: 
+
+<?php
+
+	$f = fopen("../../servo_pos.txt", "r");
+
+	// Read line from the text file and write the contents to the client
+	echo fgets($f); 
+
+	fclose($f);
+
+	?>
+
+degrees</p><p></p>
 			<form action="#" method="post">
 			{% csrf_token %}<p>
 				<button type="submit" class="myButton" name="left" value="turn&left">LEFT</button>
